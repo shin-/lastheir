@@ -7,10 +7,10 @@ Graphx::Graphx(int screenWidth, int screenHeight, HWND hwnd) {}
 Graphx::~Graphx(void) {}
 
 bool Graphx::Draw() {
-	return true;
+    return true;
 }
 
 
 bool Graphx::Render() {
-	return true;
+    return true;
 }
