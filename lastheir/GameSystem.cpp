@@ -29,12 +29,12 @@ bool GameSystem::Initialize() {
 	OpenWindow(screenWidth, screenHeight);
 
 	input = new Input();
-	if(!input) {
+	if (!input) {
 		return false;
 	}
 
 	graphics = new Graphx(screenWidth, screenHeight, hwnd);
-	if(!graphics) {
+	if (!graphics) {
 		return false;
 	}
 
@@ -43,22 +43,18 @@ bool GameSystem::Initialize() {
 
 void GameSystem::Run() {
 	MSG msg;
-	bool done;
 
 	// Initialize the message structure.
 	ZeroMemory(&msg, sizeof(MSG));
 
-	// Loop until there is a quit message from the window or the user.
-	done = false;
 	while(true) {
 		// Handle the windows messages.
-		if(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
 
-		// If windows signals to end the application then exit out.
-		if(msg.message == WM_QUIT) {
+		if (msg.message == WM_QUIT) {
 			break;
 		} else if(!Frame()) {
 			break;
@@ -69,7 +65,7 @@ void GameSystem::Run() {
 
 bool GameSystem::Frame() {
 	// Check if the user pressed escape and wants to exit the application.
-	if(input->IsKeyDown(VK_ESCAPE)) {
+	if (input->IsKeyDown(VK_ESCAPE)) {
 		return false;
 	}
 	graphics->Render();
@@ -77,7 +73,7 @@ bool GameSystem::Frame() {
 }
 
 LRESULT CALLBACK GameSystem::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam) {
-	switch(umsg) {
+	switch (umsg) {
 		// Check if a key has been pressed on the keyboard.
 		case WM_KEYDOWN:
 			input->KeyDown((unsigned int)wparam);
@@ -92,7 +88,6 @@ LRESULT CALLBACK GameSystem::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam,
 
 void GameSystem::OpenWindow(int& screenWidth, int& screenHeight) {
 	WNDCLASSEX wc;
-	DEVMODE dmScreenSettings;
 	int posX, posY, fullW, fullH;
 
 	// Get the instance of this application.
@@ -121,8 +116,8 @@ void GameSystem::OpenWindow(int& screenWidth, int& screenHeight) {
 	fullW = GetSystemMetrics(SM_CXSCREEN);
 	fullH = GetSystemMetrics(SM_CYSCREEN);
 
-	screenWidth  = fullW * 0.9;
-	screenHeight = fullH * 0.9;
+	screenWidth  = (int)(fullW * 0.9);
+	screenHeight = (int)(fullH * 0.9);
 
 	// Place the window in the middle of the screen.
 	posX = (fullW - screenWidth)  / 2;
