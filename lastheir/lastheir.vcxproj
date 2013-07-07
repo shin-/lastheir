@@ -76,12 +76,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="D3DBinding.cpp" />
+    <ClCompile Include="EngineException.cpp" />
     <ClCompile Include="Graphx.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="D3DBinding.h" />
+    <ClInclude Include="EngineException.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="Graphx.h" />
     <ClInclude Include="Input.h" />

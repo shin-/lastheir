@@ -1,5 +1,5 @@
 #pragma once
-#include <windows.h>
+#include "D3DBinding.h"
 
 const bool VSYNC_ENABLED = true;
 const float SCREEN_DEPTH = 1000.0f;
@@ -13,5 +13,6 @@ public:
 
 private:
     bool Draw();
+    D3DBinding* d3d;
 };
 

@@ -116,8 +116,8 @@ void GameSystem::OpenWindow(int& screenWidth, int& screenHeight) {
     fullW = GetSystemMetrics(SM_CXSCREEN);
     fullH = GetSystemMetrics(SM_CYSCREEN);
 
-    screenWidth  = (int)(fullW * 0.9);
-    screenHeight = (int)(fullH * 0.9);
+    screenWidth  = (int)(fullW * 1);
+    screenHeight = (int)(fullH * 1);
 
     // Place the window in the middle of the screen.
     posX = (fullW - screenWidth)  / 2;
